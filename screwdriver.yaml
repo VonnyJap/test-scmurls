@@ -1,0 +1,12 @@
+shared:
+  image: node:20
+
+subscribe:
+  scmUrls:
+  - git@github.com:VonnyJap/test-pr-config.git: ['~commit', '~pr']
+
+jobs:
+  main:
+    steps:
+    - echo: echo "Hello World"
+    requires: [~pr, ~commit, ~subscribe]
